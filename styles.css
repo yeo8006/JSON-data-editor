@@ -1,0 +1,308 @@
+/* 기본 레이아웃 및 폰트 */
+body {
+	font-family: Arial, sans-serif;
+	background: #f4f4f4;
+	padding: 20px;
+	margin: 0;
+}
+  
+h1,
+#uploadInput,
+.button-group {
+  margin-bottom: 10px;
+}
+
+.button-group > button {
+  background-color: #9b59b6;
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.button-group > button:hover {
+  opacity: 0.8;
+}
+
+/* 에디터 스타일 */
+.editor-container {
+  width: max-content;
+  min-width: 500px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.object-editor,
+.array-editor {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-left: 3px solid #007acc;
+}
+
+.number-editor,
+.string-editor,
+.boolean-editor {
+  margin-left: 10px;
+}
+
+.property-container,
+.item-container {
+  display: flex;
+  align-items: center;
+}
+
+.property-main {
+  display: flex;
+  align-items: center;
+}
+
+.has-many {
+  display: flex;
+  align-items: flex-start;
+}
+
+.editor-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.add-button,
+.remove-button,
+.expand-button,
+.collapse-button,
+.inspect-button {
+  width: 28px;
+  height: 26px;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+  margin: 5px;
+  margin-left: 0px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.add-button {
+  background-color: #5bd454;
+}
+
+.remove-button {
+  background-color: #F44336;
+}
+
+.expand-button,
+.collapse-button {
+  padding: 0px;
+  background: #ff7eb3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expand-button svg,
+.collapse-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.inspect-button {
+  background: #87CEEB;
+  font-size: 12px;
+  padding: 5px 6px;
+}
+
+.key-input {
+  margin-right: 5px;
+  padding: 4px;  
+  font-size: 14px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.true-input,
+.false-input {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.true-input:hover,
+.false-input:hover {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* 미리보기 스타일 */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 4px;
+  width: 80%;
+  max-width: 600px;
+  min-width: 200px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.close {
+	color: #aaa;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.close:hover {
+	color: black;
+}
+
+/* JSON Path 및 Content 영역 */
+.inspectContainer {
+  background: #f8f9fa;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.inspectHead {
+  display: flex;
+  align-items: center;
+}
+
+.copy-button {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.copy-button:hover {
+  animation: blink 1s infinite;
+}
+
+.copy-button {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.inspectContainer:hover .copy-button {
+  opacity: 1;
+}
+
+.inspectContent {
+  position: relative;
+  max-width: 100%;
+}
+
+.inspectContent > pre {
+  background: #282c34;
+  color: #f8f8f2;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+}
+
+.inspectContent > pre[contenteditable="true"] {
+  background: #ddd;
+  color: black;
+}
+
+#jsonTextEditor {
+  max-width: 100%;
+  min-width: 100%;
+  min-height: max-content;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+#textEditBtn,
+#textSaveBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.inspectContainer:hover #textEditBtn,
+.inspectContainer:hover #textSaveBtn {
+  opacity: 1;
+}
+
+#textEditBtn:hover,
+#textSaveBtn:hover {
+  animation: blink 1s infinite;
+}
+
+.msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #f8f9fa;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.msg.show {
+  opacity: 0.7;
+}
+
+.json-key { color: #ff9d00; }  /* 키 (오렌지) */
+.json-string { color: #ce9178; } /* 문자열 (연한 빨강) */
+.json-number { color: #b5cea8; } /* 숫자 (연한 녹색) */
+.json-boolean { color: #569cd6; } /* 불리언 (파랑) */
+.json-null { color: #dcdcaa; } /* null (연한 노랑) */
+.json-collapsible {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}

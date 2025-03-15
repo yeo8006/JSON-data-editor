@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Data Editor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>JSON Data Editor</h1>
+
+  <!-- JSON 업로드 UI -->
+  <input type="file" id="uploadInput" accept=".json" />
+
+  <div class="button-group">
+    <button id="downloadBtn">다운로드</button>
+  </div>
+
+  <div id="inspectModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-buttons">
+        <div id="closeInspectBtn" class="close">&times;</div>
+      </div>
+      <div class="inspectContainer">
+        <div class="inspectHead">
+          <div>JSON Path</div>
+          <button class="copy-button" title="복사" id="jsonPathCopybtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 0.5);transform: ;msFilter:;"><path d="M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z"></path></svg>
+          </button>
+        </div>
+        <div class="inspectContent">
+          <pre id="jsonPath"></pre>
+        </div>
+      </div>
+      <div class="inspectContainer">
+        <div class="inspectHead">
+          <div>JSON Content</div>
+          <button class="copy-button" title="복사" id="jsonContentCopybtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 0.5);transform: ;msFilter:;"><path d="M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z"></path></svg>
+          </button>
+        </div>
+        <div class="inspectContent">
+          <pre id="jsonContent"></pre>
+          <!-- <textarea id="jsonTextEditor" placeholder="텍스트 편집."></textarea> -->
+          <input type="button" value="✂️" title="편집" id="textEditBtn" />
+          <input type="button" value="💾" title="저장" id="textSaveBtn" />
+        </div>
+      </div>
+		</div>
+	</div>
+
+  <!-- 최상위(루트) 에디터 -->
+  <div class="editor-container" id="rootEditor"></div>
+
+  <!-- 스크립트 파일 -->
+  <script src="script.js"></script>
+</body>
+</html>
